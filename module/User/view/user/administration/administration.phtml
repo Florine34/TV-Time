@@ -1,0 +1,31 @@
+<main class="titre">
+
+    <h1>Gestion de Compte </h1>
+    <br>
+    <div>
+        <span><strong>Nom d'utilisateur : </strong><?=$this->escapeHtml($username)?></span><br>
+        <span><strong>Adresse mail : </strong><?=$this->escapeHtml($mail)?></span><br>
+        <br>
+        <div class="row">
+            <div class="forms col-lg-5 col-sm-5">
+                <form action="<?=$this->basePath()?>/user/administration/changerMail" method="post">
+                    <label class=""><label for="nom">Changer email</label> : </label>
+                    <div class="row">
+                        <input type="email" class="form-control" name="mail"/>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Envoyer</button>
+                    </div>
+                </form>
+            </div>     
+            <div class="forms col-lg-5 col-sm-5">
+                <form action="<?=$this->basePath()?>/user/administration/changerPhoto" method="post">
+                    <label class=""><label for="nom">Changer photo de profil</label> : </label>
+                    <div class="row">           
+                        <input type="url" class="form-control" name="url"/>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Envoyer</button>
+                    </div>
+                </form>
+            </div> 
+        </div>
+    </div>
+
+</main>

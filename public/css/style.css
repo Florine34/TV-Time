@@ -1,0 +1,547 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+main{
+    min-height:90vh;
+}
+main:after {
+     content: "";
+     display: block;
+ }
+
+
+/* Search */
+
+.search {
+    position: relative;
+    margin: 0 auto;
+    width: 300px;
+    color: black;
+}
+
+.search input {
+    height: 60px;
+    width: 100%;
+    min-width: 100%;
+    padding: 0;
+    border-radius: 0;
+    line-height: 20px;
+    background-color: transparent;
+    color: #999999;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-bottom: 3px solid rgba(255,215,0,0.7);
+
+}
+
+.search input:focus {
+    border-color: #66b1ee;
+    box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+}
+
+
+
+
+
+
+.search #results {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid rgb(255,215,0);
+    border-radius: 3px;
+    background-color: #333333;
+    list-style: none;
+}
+
+
+.search #results a {
+    display: block;
+    position: relative;
+    z-index: 999;
+    margin: 0 -1px;
+    padding: 6px 40px 6px 10px;
+    font-weight: 500;
+    color: #999999;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.search #results a span { font-weight: 200 }
+
+.search #results a:before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -9px;
+}
+
+.search #results a:hover {
+    text-decoration: none;
+    color: #333333;
+    -webkit-transform: scale(1.025);
+    transform: scale(1.025);
+    background-color: rgb(255,215,0);
+}
+
+
+
+.menudropdown{
+    text-align: left;
+    width:100%;
+
+}
+
+.menudropdown>a{
+    width:100%;
+    text-align: left;
+
+}
+
+.hidden{
+    display:none;
+}
+.zf-green {
+    color: #68b604;
+}
+
+.btn-success {
+    background-color: #57a900;
+    background-image: -moz-linear-gradient(top, #70d900, #57a900);
+    background-image: -ms-linear-gradient(top, #70d900, #57a900);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
+    background-image: -webkit-linear-gradient(top, #70d900, #57a900);
+    background-image: -o-linear-gradient(top, #70d900, #57a900);
+    background-image: linear-gradient(top, #70d900, #57a900);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+    background-color: #57a900;
+}
+
+.txtSubtotal {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.valSubtotal {
+    color: darkred;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+
+.btn-outlined.btn-primary {
+    background: darkred;
+    border: 3px solid darkred;
+    font-weight: bold
+}
+
+
+
+.btn-outlined.btn-primary:hover,
+.btn-outlined.btn-primary:active {
+    color: #FFF;
+    background: rgb(100, 0, 0)
+}
+
+
+div.container a.navbar-brand > img {
+    display: inline;
+    margin-right: 4px;
+    margin-top: -2px;
+}
+
+
+
+
+#header .logo h3{
+    width :80%;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+}
+
+#header {
+    height: 10vh;
+    border-bottom: solid black 1px;
+    background-color: #333333;
+    color: #fcd738;
+    border-bottom: solid 3px #fcd738;
+
+}
+
+#header .panier {
+    color: white;
+    border: solid white;
+    margin: 10%;
+}
+
+#header .logo {
+    height: 10vh;
+    text-align: center;
+    padding: 0.5vw;
+}
+
+#header .logo img {
+    height: 100%;
+}
+
+td{
+    padding:10px;
+}
+
+
+#footer {
+    height: 10vh;
+    background-color: #333333;
+    color: #999999;
+    border-top: solid 3px #fcd738;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+#footer div p {
+    color: #fcd738;
+    text-align: center;
+}
+
+
+
+
+
+/*Login*/
+.login-container{
+    position: relative;
+    width: 300px;
+    margin: 80px auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+#output{
+    position: absolute;
+    width: 300px;
+    top: -75px;
+    left: 0;
+    color: #fff;
+}
+
+#output.alert-success{
+    background: rgb(25, 204, 25);
+}
+
+#output.alert-danger{
+    background: rgb(228, 105, 105);
+}
+
+
+.login-container::before,.login-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;height: 100%;
+    top: 3.5px;left: 0;
+    background: #fff;
+    z-index: -1;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    border: 1px solid #ccc;
+
+}
+
+.login-container::after{
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+    -moz-transform: rotateZ(-2deg);
+    -ms-transform: rotateZ(-2deg);
+
+}
+
+.form-box input{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height:40px;
+    border: 1px solid #ccc;;
+    background: #fafafa;
+    transition:0.2s ease-in-out;
+
+}
+
+.form-box input:focus{
+    outline: 0;
+    background: #eee;
+}
+
+.form-box input[type="text"]{
+    border-radius: 5px 5px 0 0;
+}
+
+.form-box input[type="password"]{
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+}
+
+.form-box button.login{
+    margin-top:15px;
+    padding: 10px 20px;
+}
+
+
+.avatar{
+    object-fit: cover;
+    width:250px;
+    height:250px;
+}
+
+/* Note */
+.checked {
+    color: orange !important;
+    cursor: pointer;
+}
+
+.notes a{
+    color:black;
+}
+
+/* Administration */
+.titre {
+    text-align: center;
+}
+.forms {
+    margin-top: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+/* ------------------------ Bouton radio ----------------------------- */
+/* The container */
+.containerRadio {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.containerRadio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a red background color */
+.containerRadio:hover input ~ .checkmark {
+    background-color: #33333388;
+}
+
+/* When the radio button is checked, add a green background */
+.containerRadio input:checked ~ .checkmark {
+    background-color: #333333;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.containerRadio input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.containerRadio .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #FFD700;
+}
+
+/* Listeseries */
+#poster {
+    height: 400px;
+}
+
+.groupeColomn {
+    text-align: center;
+    columns: 2;
+}
+
+.groupeColomn a div {
+    font-size: 180%;
+}
+
+.groupeColomn a:hover {
+    text-decoration: none;
+    color: #FFD700;
+}
+
+#buttonSuivant {
+    float: right;
+    margin-right: 10px;
+}
+#buttonPrecedent {
+    float: left;
+    margin-left: 10px;
+}
+/* User mse en page sére */
+#posterSerie {
+    height: 200px;
+}
+
+.groupeColomnSerie {
+    text-align: center;
+    columns: 4;
+    height: 250px;
+}
+
+.groupeColomnSerie a div {
+    font-size: 100%;
+}
+
+.groupeColomnSerie a:hover {
+    text-decoration: none;
+    color: #FFD700;
+}
+
+
+
+/* ------------ Menu ---------- */
+.navbar-nav{
+    width:100%;
+}
+
+.navbar-right{
+    margin-right: 0;
+}
+
+
+.navigation li{
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    float: left;
+    display: inline-block;
+    padding: 0 0 10px 0;
+    text-transform: uppercase;
+    text-align: center;
+    width:25%;
+}
+
+.navigation li a{
+    color: #333333;
+}
+
+
+.navigation li a {
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform,background-color;
+    transition-property: box-shadow, transform,background-color;
+}
+.navigation li a:hover, .navigation li a:focus, .navigation li a:active , .active{
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    background-color:#FFD700;
+}
+
+
+/* Boutons du site */
+.button-yellow {
+    text-align: center;
+    font-weight:bold;
+    border-radius: 5px;
+    color: #333333;
+    font-size: 15px;
+    background: #FFD740;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.button-yellow:hover {
+    background: #FFD740;
+    background-image: -webkit-linear-gradient(top, #FFD740, #e6bb3c);
+    background-image: -moz-linear-gradient(top, #FFD740, #e6bb3c);
+    background-image: -ms-linear-gradient(top, #FFD740, #e6bb3c);
+    background-image: -o-linear-gradient(top, #FFD740, #e6bb3c);
+    background-image: linear-gradient(to bottom, #FFD740, #e6bb3c);
+    text-decoration: none;
+}
+
+
+.button-black{
+    text-align: center;
+    background: #444444;
+    background-image: -webkit-linear-gradient(top, #444444, #222222);
+    background-image: -moz-linear-gradient(top, #444444, #222222);
+    background-image: -ms-linear-gradient(top, #444444, #222222);
+    background-image: -o-linear-gradient(top, #444444, #222222);
+    background-image: linear-gradient(to bottom, #444444, #222222);
+    border-radius: 5px;
+    color: #DDDDDD;
+    font-size: 15px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.button-black:hover {
+    background: #444444;
+    background-image: -webkit-linear-gradient(top, #444444, #222222);
+    background-image: -moz-linear-gradient(top, #444444, #222222);
+    background-image: -ms-linear-gradient(top, #444444, #222222);
+    background-image: -o-linear-gradient(top, #444444, #222222);
+    background-image: linear-gradient(to bottom, #444444, #222222);
+    text-decoration: none;
+    color: #FFFFFF;
+}
+

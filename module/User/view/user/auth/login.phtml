@@ -1,0 +1,50 @@
+<?php
+$this->headTitle('Sign in');
+
+$form->get('mail')->setAttributes([
+    'class'=>'form-control',
+    'placeholder'=>'admin@admin.fr',
+    'required' => true,
+    'autofocus' => true
+])
+    ->setLabelAttributes([
+        'class' => 'sr-only'
+    ]);
+
+$form->get('password')->setAttributes([
+    'class'=>'form-control',
+    'placeholder'=>'Bonjours123',
+    'required' => true,
+])
+    ->setLabelAttributes([
+        'class' => 'sr-only'
+    ]);
+?>
+<br>
+<span><b>Utilisateur normal:</b> user@user.fr:Bonjours123</span><br>
+<span><b>Administrateur:</b> admin@admin.fr:Bonjours123</span>
+
+
+<div class="container">
+    <div class="login-container">
+        <div id="output"></div>
+        <div class="avatar"></div>
+        <div class="form-box">
+            <form class="form-signin" method="post">
+                <h2 class="form-signin-heading">Connexion au site</h2>
+                <?php if ($isLoginError): ?>
+                <div class="alert alert-warning" role="alert">
+                Identifiants incorrects.
+               </div>
+                <?php endif; ?>
+                <?= $this->formLabel($form->get('mail')); ?>
+                <?= $this->formElement($form->get('mail')); ?>
+                <?= $this->formLabel($form->get('password')); ?>
+                <?= $this->formElement($form->get('password')); ?>
+                <?= $this->formElement($form->get('redirect_url')); ?>
+                <?= $this->formElement($form->get('csrf')) ?>
+                <button class="btn btn-outlined btn-block btn-primary" type="submit">Connexion</button>
+            </form>
+        </div>
+    </div>
+</div>

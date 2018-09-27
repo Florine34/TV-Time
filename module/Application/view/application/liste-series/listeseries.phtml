@@ -1,0 +1,38 @@
+<main>
+	<h1 class="titre">Découvrez des Series</h1>
+    <div id="result">
+    	<div class="row groupeColomn">
+			<?php for($i=0; $i<sizeof($resultat);$i++): ?>
+				<div>
+					<a href="<?= $this->basePath()?>/serie/<?= $resultat[$i]->show->ids->slug?>">
+						<img src="<?= $imageOMDB[$i]->Poster?>" alt="Poster" id="poster">
+						<div class="">
+							<?= $resultat[$i]->show->title?> (<?=$resultat[$i]->show->year ?>)
+						</div>
+				    </a>
+				</div>
+				<?php if(($i+1)%2==0): ?>
+					</div>
+					<?php if($i!=sizeof($resultat)-1){
+						echo '<hr>';
+					} ?>
+					<div class="row groupeColomn">
+				<?php endif ?>	
+			<?php endfor ?>	    
+				</div>
+		</div>
+    </div>
+
+    <hr>
+
+    <div>
+		<?php if($numPage > 1): ?>
+			<a id="buttonPrecedent" class="btn btn-primary" href="<?= $this->basePath()?>/listeseries/<?= $numPage-1;?>">Page précedente </a>   
+		<?php endif;?>
+		<?php if($numPage < $nbPages): ?>
+			<a id="buttonSuivant" class="btn btn-primary" href="<?= $this->basePath()?>/listeseries/<?= $numPage+1;?>">Page suivante </a>    
+		<?php endif;?>
+	</div>  
+	<br>
+
+</main>

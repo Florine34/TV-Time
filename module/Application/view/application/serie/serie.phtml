@@ -1,0 +1,75 @@
+<!-- Import des étoiles pour les notes -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="row" >
+    <div class="col-lg-4">
+        <h1><?=$serie->title?></h1>  
+        <img src="<?= $image->Poster?>" alt="Poster">
+    </div>
+    <div class="col-lg-5" style="margin-top: 5%;">
+        <div style="column: 3;">
+            <span><strong>Date de sortie : </strong> <?=$serie->year?> </span>
+            <span><strong>Status : </strong> <?php if($serie->status == 'ended'){echo 'Terminé';}else {echo 'En cours';}?> </span>
+            <span>
+                <strong>Chaine : </strong> <?=$serie->network?> 
+            </span>
+        </div>
+        <br>
+        <div>
+            <strong>Description : </strong><?=$serie->overview?>
+        </div>
+        <br>
+        <div>
+            <strong>Genres : </strong>
+            <?php for($i=0;$i<sizeof($serie->genres);$i++){
+                    if($i==sizeof($serie->genres)-1){
+                        echo $serie->genres[$i].'.';
+                    }
+                    else {
+                        echo $serie->genres[$i].', ';
+                    }
+                }?>
+        </div>
+        <br>
+        <!-- Quand on hover une étoile, met à jour l'affichage avec note(idHover). Quand on sort de la div, remet l'affichage avec note(notePHP)-->
+        <div class="notes" onmouseleave="note(<?=isset($liste->_note)?$liste->_note:0;?>)">
+            <strong>Note : </strong>
+            <a id="star1" onmouseover="note(1)" href="<?= $this->basePath().'/serie/'.$idSerie?>/note/1"><div class="fa fa-star"></div></a>
+            <a id="star2" onmouseover="note(2)" href="<?= $this->basePath().'/serie/'.$idSerie?>/note/2"><div class="fa fa-star"></div></a>
+            <a id="star3" onmouseover="note(3)" href="<?= $this->basePath().'/serie/'.$idSerie?>/note/3"><div class="fa fa-star"></div></a>
+            <a id="star4" onmouseover="note(4)" href="<?= $this->basePath().'/serie/'.$idSerie?>/note/4"><div class="fa fa-star"></div></a>
+            <a id="star5" onmouseover="note(5)" href="<?= $this->basePath().'/serie/'.$idSerie?>/note/5"><div class="fa fa-star"></div></a>
+        </div>
+    </div>
+    <div class="col-lg-3" style="margin-top: 5%;">
+        <?php if(isset($liste)==null): ?>
+           <a class="button-yellow col-lg-12" style="margin: 1%;" href="<?= $this->basePath()?>/serie/<?=$idSerie;?>/ajout">Ajouter à ma liste</a>
+           <br>
+        <?php else : ?>
+            <a class="button-black col-lg-12" style="margin: 1%;" href="<?= $this->basePath()?>/serie/<?=$idSerie;?>/suppression">Supprimer de ma liste</a>
+            <br>
+        <?php endif; ?>
+        <?php if((isset($infoSerie->_favoris)==null || 0) && $liste!=null ): ?>
+            <a class="button-yellow col-lg-12" style="margin: 1%;" href="<?= $this->basePath()?>/serie/<?=$idSerie;?>/favoris">Ajouter à mes favoris</a>
+            <br>
+        <?php endif; ?>
+        <?php if(isset($infoSerie->_favoris)==1): ?>
+            <a class="button-black col-lg-12" style="margin: 1%;" href="<?= $this->basePath()?>/serie/<?=$idSerie;?>/supprfavoris">Supprimer de mes favoris</a>
+            <br>
+        <?php endif; ?>
+    </div>
+</div>
+    <hr>
+    <h2>Saisons : </h2>
+    <?php 
+    $lengthObject = count($saison); 
+    for($i=1; $i<$lengthObject; $i++): ?>
+        <a href="<?= $this->basePath()?>/serie/<?= $this->idSerie?>/saison/<?= $i?>">Saison <?= $saison[$i]->number?></a><br>
+    <?php endfor ?>
+    <hr>
+
+
+<script>
+    //Affiche la note recue en php au lancement de la page
+    note(<?=$liste->_note?>);
+</script>

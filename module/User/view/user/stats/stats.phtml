@@ -1,0 +1,27 @@
+<h1 class="titre"> Statistiques</h1>
+
+<hr>
+<div class="row">
+	<img class="avatar" src="<?= $this->user->_picture?>" style="float:left;"/><br>
+	<div class="col-lg-4 col-sm-4" style="padding-left: 35px; padding-top: 50px">
+		<div class="row">
+			<span><strong>Nom d'utilisateur : </strong> <?= $this->user->_username?></span><br>
+			<hr>
+			<span><strong>Nombre de séries suivies: </strong><?=$nbSeries?></span></br>
+            <span><strong>Nombre d'épisodes vus: </strong><?=$nbEpisodes?></span></br>
+            <span><strong>Nombre de badges: </strong><?=sizeof($utilisateurBadges)?></span></br>
+		</div>
+	</div>
+</div>
+<hr>
+<h1>Badges</h1>
+
+
+
+<?php foreach($utilisateurBadges as $utilisateurBadge){
+    foreach($badges as $badge){
+        if($badge->_idBadge==$utilisateurBadge->_idBadge){
+            echo "<strong>".$badge->_nom." : </strong><p>".$badge->_description."</p><br>";
+        }
+    }
+}?>

@@ -1,0 +1,88 @@
+<?= $this->doctype() ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('TV Time')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+            ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+        ?>
+
+        <!-- Scripts -->
+        <?= $this->headScript()
+            ->prependFile($this->basePath('js/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
+            ->prependFile($this->basePath('js/script.js'))
+
+        ?>
+
+    </head>
+    <body>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <main>
+    <header>
+            <div id="header" class="row justify-content-between">
+                <div class="logo col-lg-3 col-md-3 col-sm-3 col-4">
+                    <a href="<?= $this->basePath()?>" ><img src="<?= $this->basePath()?>/img/TVShow_Time_logo.png"/></a>
+                </div>
+                <!--Barre de Recherche-->
+                <section class="main">
+                    <form id="search" class="search" action="#" >
+                        <input type="hidden" id="searchInputBasePath" value="<?=$this->basePath()?>"/>
+                        <input type="text" placeholder="Rechercher une série..." id="searchInput" value=""  onfocus="displaySearch()" onblur="hideSearch()" onclick="majSearch()" oninput="majSearch()"  />
+                        <span class="search-highlight"></span>
+                        <ul id="results" class="hidden" >
+                            <li>
+                                <a id="search1">
+                                    <br/> - <span id="search1Date"> - </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="search2">
+                                    <br/> - <span id="search2Date"> - </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="search3">
+                                    <br/> - <span id="search3Date"> - </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </form>
+                </section>
+                <div class="col-lg-12">
+                    <!-- Navigation bar -->
+                    <?php
+                    if (isset($activeMenuItemId)) {
+                        $this->mainMenu()->setActiveItemId($activeMenuItemId);
+                    }
+                    // Render the navbar
+                    echo $this->mainMenu()->render();
+                    ?>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <?= $this->content ?>
+            <hr>
+            
+        </div>
+        <?= $this->inlineScript() ?>
+    </main>
+        <footer>
+            <div id="footer" >
+                <p>&copy; 2018 by J. Almes, F. Carlier, J. Haegman and S. Noel . All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+    
+</html>

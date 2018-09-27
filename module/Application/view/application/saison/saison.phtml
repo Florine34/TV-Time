@@ -1,0 +1,53 @@
+<h1 style="text-align : center">Série <?=$idSerie?> - Saison <?=$idSaison?></h1>
+<body >
+	<div class="row" style="padding-top: 20px;" ">
+		<img src="<?= $image->Poster?>" alt="Poster" style ="float:left">
+		<div class="col-lg-5 col-sm-4" style="padding-left: 35px;">
+		    <?php $lengthObject = count($episode); 
+		    // Pour chaque épisode 
+			for($i=0; $i<$lengthObject; $i++): ?>
+
+				<label class="containerRadio">
+				<!-- On affiche le numéro et le nom de l'épisode de la saison -->
+				<?= $episode[$i]->number?> - 
+			   	<?= $episode[$i]->title?><br>
+			   	<!-- On vérifie si l'épisode a été marqué comme vus ou non 
+			   		Si oui on l'affiche coché -->
+				<?php if($tab[$i+1] == false) :?> <input type="checkbox" name="episode[]" value="<?=$i?>">
+		  		<span class="checkmark"></span>
+				<?php endif; ?> 
+				<?php if($tab[$i+1] == true) :?> <input type="checkbox" name="episode[]" value="<?=$i?>" checked >
+		  		<span class="checkmark"></span>
+				<?php endif; ?> 
+				</label>
+
+				<!-- On recupère les liens en caché afin de les utiliser dans le JavaScript --> 
+			  	<a href="<?= $this->basePath()?>/serie/<?= $this->idSerie?>/saison/<?= $idSaison?>/check/<?=$i+1?>" style="display: none;" id="urlCheck<?=$i?>"></a>
+			  	
+			  	<a href="<?= $this->basePath()?>/serie/<?= $this->idSerie?>/saison/<?= $idSaison?>/uncheck/<?=$i+1 ?>" style="display: none;" id="unCheck<?=$i?>"></a>
+			<?php endfor ?>
+		</div>
+	</div>
+
+	
+</body>
+
+<script type="text/javascript">
+	function changerURL(event) {
+		var isChecked = event.target.checked;
+		// Si l'épisode est vus, on le marque comme non vus 
+		if (!isChecked) {
+			window.location=document.getElementById('unCheck'+event.target.value);
+		}
+		// Sinon, si l'épisode est non vus, on le marque comme vus  
+		else {
+			window.location=document.getElementById('urlCheck'+event.target.value);
+		}
+	}
+	// On appel la fonction au dessus 
+	var tab = document.getElementsByTagName('input');
+	for (var i = tab.length - 1; i >= 0; i--) {
+		tab[i].addEventListener("change",changerURL);
+
+	}
+</script>

@@ -1,0 +1,76 @@
+<h1 class="titre" >Votre profil</h1>
+<hr>
+<div class="row">
+	<img class="avatar" src="<?= $this->user->_picture?>" style="float:left;"/><br>
+	<div class="col-lg-4 col-sm-4" style="padding-left: 35px; padding-top: 60px">
+        <div class="row">
+			<span><strong>Nom d'utilisateur : </strong> <?= $this->user->_username?></span><br>
+			<span><strong>Mail d'utilisateur : </strong> <?= $this->user->_mail?></span><br>
+		</div>
+	</div>
+</div>
+<hr>
+<h3>Séries en cours</h3>
+    <div class="row groupeColomnSerie">
+			<?php for ($i=0;$i<sizeof($seriesEnCours);$i++): ?>
+				<div <?php  /*correction de style*/ if($i%4==0)echo "style='display:inline-block'"?>>
+					<a href="<?= $this->basePath()?>/serie/<?= $seriesEnCours[$i]->_idSerie?>" >
+						<img src="<?= $imageEnCours[$i]->Poster?>" alt="Poster" id="posterSerie" ><br>
+						<span>
+							<?= $imageEnCours[$i]->Title?>
+						</span>
+					</a>
+				</div>
+				<?php if(($i+1)%4==0): ?>
+					</div>
+						<?php if($i!=sizeof($seriesEnCours)-1){
+							echo '<hr>';
+						} ?>
+					<div class="row groupeColomnSerie">
+				<?php endif ?>
+			<?php endfor;?>
+	</div>
+	<hr>
+
+<h3>Séries à démarrer</h3>
+    <div class="row groupeColomnSerie">
+			<?php for ($i=0;$i<sizeof($seriesADemarrer);$i++): ?>
+            <div <?php  /*correction de style*/ if($i%4==0)echo "style='display:inline-block'"?>>
+					<a href="<?= $this->basePath()?>/serie/<?= $seriesADemarrer[$i]->_idSerie?>">
+						<img src="<?= $imageADemarrer[$i]->Poster?>" alt="Poster" id="posterSerie">
+						<div>
+							<?= $imageADemarrer[$i]->Title?>
+						</div>
+					</a>
+				</div>
+				<?php if(($i+1)%4==0): ?>
+					</div>
+						<?php if($i!=sizeof($seriesADemarrer)-1){
+							echo '<hr>';
+						} ?>
+					<div class="row groupeColomnSerie">
+				<?php endif ?>
+			<?php endfor;?>
+	</div>
+<hr>
+
+<h3>Séries favorites</h3>
+    <div class="row groupeColomnSerie">
+		<?php for ($i=0;$i<sizeof($seriesFavorites);$i++): ?>
+            <div <?php  /*correction de style*/ if($i%4==0)echo "style='display:inline-block'"?>>
+				<a href="<?= $this->basePath()?>/serie/<?= $seriesFavorites[$i]->_idSerie?>">
+					<img src="<?= $imageFavorites[$i]->Poster?>" alt="Poster" id="posterSerie">
+					<div>
+						<?= $imageFavorites[$i]->Title?>
+					</div>
+				</a>
+			</div>
+			<?php if(($i+1)%4==0): ?>
+				</div>
+					<?php if($i!=sizeof($seriesFavorites)-1){
+						echo '<hr>';
+					} ?>
+				<div class="row groupeColomnSerie">
+			<?php endif ?>
+		<?php endfor;?>
+	</div>
